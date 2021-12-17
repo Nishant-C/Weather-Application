@@ -1,8 +1,8 @@
 const request = require('request')
 
 const geocoding = (address, callback) => {
-    var url =  `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=pk.eyJ1IjoibmlzaGFudDE1NyIsImEiOiJjandyZ2g2Y2YxaXpsM3luc3FqdGY5dDhrIn0.QD8waIlhJtKVTVmTiyv3cw&limit=1`
- 
+    //var url =  `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=pk.eyJ1IjoibmlzaGFudDE1NyIsImEiOiJjandyZ2g2Y2YxaXpsM3luc3FqdGY5dDhrIn0.QD8waIlhJtKVTVmTiyv3cw&limit=1`
+    var url =  `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${process.env.mapBoxAccessToken}&limit=1`
     request({ url, json: true}, (error, { body }) => {
         if (error) {
              callback('Unable to connect to location service', undefined)
